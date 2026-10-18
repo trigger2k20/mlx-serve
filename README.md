@@ -144,6 +144,8 @@ It goes well beyond text-to-X: photo editing by instruction, image-to-image, ani
 
 **Settings → Server → Automatically Discover Models** controls LM Studio, Hugging Face cache and other detected sources (on by default). Turn it off to list only configured folders and previous MLX-Serve downloads. **My Models → Refresh** rescans enabled sources without duplicating the same files.
 
+Disable **Settings → Interface → Show Activity Phrases** to hide rotating generation text while keeping GPU, memory and elapsed time visible.
+
 Menu-bar app that wraps the server with a full UI:
 
 - **Chat + agent mode:** multi-session chat, PDFs and images, 10 built-in tools with per-tool approvals, an MCP marketplace, prompt-based skills, persistent memory, folder RAG.
