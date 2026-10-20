@@ -36,7 +36,17 @@ struct ModelLoadProgressRow: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var server: ServerManager
 
+    var includesBackgroundLoads = false
+
     var body: some View {
+        if ChatModelSelection.showsLocalLoadProgress(lanChatModelId: server.lanChatModelId,
+                                                     apple: appState.useAppleModel,
+                                                     includesBackgroundLoads: includesBackgroundLoads) {
+            localLoads
+        }
+    }
+
+    @ViewBuilder private var localLoads: some View {
         if let path = appState.loadingModelPath {
             LoadProgressLine(name: ModelDisplayName.pretty(URL(fileURLWithPath: path).lastPathComponent),
                              progress: LoadProgress.lookup(server.loadProgress, path: path))

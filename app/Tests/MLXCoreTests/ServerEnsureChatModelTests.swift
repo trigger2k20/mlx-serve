@@ -30,4 +30,24 @@ final class ServerEnsureChatModelTests: XCTestCase {
             running: true, launchedModelPath: "", chatResident: false,
             selectedModelPath: ""))
     }
+    @MainActor
+    func testNetworkChatDoesNotLoadOrWaitForLocalSelection() async {
+        let saved = UserDefaults.standard.string(forKey: "lanChatModelId")
+        defer { UserDefaults.standard.set(saved, forKey: "lanChatModelId") }
+        let server = ServerManager()
+        server.status = .running
+        let localPath = "/models/unrelated-local-model"
+        for remote in ["qwen@studio", "/models/qwen@Splash"] {
+            server.lanChatModelId = remote
+            XCTAssertNil(server.localChatLoadPath(selectedPath: localPath))
+            XCTAssertFalse(server.chatLoadNeeded(selectedModelPath: localPath))
+            XCTAssertEqual(server.chatRequestModelId(selectedPath: localPath), remote)
+        }
+        server.lanChatModelId = nil
+        XCTAssertEqual(server.localChatLoadPath(selectedPath: localPath), localPath)
+        XCTAssertNil(server.localChatLoadPath(selectedPath: ""))
+        XCTAssertTrue(server.chatLoadNeeded(selectedModelPath: localPath))
+        XCTAssertEqual(server.chatRequestModelId(selectedPath: localPath), localPath)
+    }
+
 }

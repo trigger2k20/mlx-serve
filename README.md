@@ -1,5 +1,7 @@
 ![mlx-serve — the unified AI powerhouse on Apple Silicon: chat, coding agents, image, video, music, voice clone, 3D](website/assets/mlx-serve-header.jpg)
 
+Provider and LAN chat selections do not preload the previous local model. The menu bar separates the chat target from the local server and local memory.
+
 # mlx-serve — run any LLM on your Mac
 
 **OpenAI- and Anthropic-compatible local inference for Apple Silicon — MLX *and* GGUF — faster than LM Studio on identical MLX weights. No Python. No cloud. No Electron.**

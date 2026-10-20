@@ -1,5 +1,7 @@
 [English](app.md) · [简体中文](zh-CN/app.md)
 
+Provider and LAN chat selections start the local proxy without preloading the previously selected local model and skip local model preparation before sending. Local load progress stays in the menu bar rather than appearing as a remote chat load. The menu bar labels the chat target, local server and local memory separately; already resident local models remain available to other clients until unloaded.
+
 # MLX Core (macOS app)
 
 In **Settings → Server**, **Automatically Discover Models** is on by default. Turning it off limits discovery to the download folder, previous MLX-Serve downloads and the optional custom folder. Turning it on also scans LM Studio, the Hugging Face cache and other supported apps. **My Models → Refresh** reloads enabled sources and their current folder settings in the background; new downloads refresh automatically. Shared files appear once, including symbolic links, with configured folders preferred. The app list updates immediately; restart a running server to apply its changed search folders. No models are moved or deleted.

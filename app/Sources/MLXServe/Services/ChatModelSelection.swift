@@ -42,6 +42,11 @@ enum ChatModelSelection {
         return .selectLan(String(tag.dropFirst(lanPrefix.count)))
     }
 
+    static func showsLocalLoadProgress(lanChatModelId: String?, apple: Bool,
+                                       includesBackgroundLoads: Bool) -> Bool {
+        includesBackgroundLoads || (lanChatModelId == nil && !apple)
+    }
+
     /// Shown when this Mac has nothing picked and nothing is answering.
     static let noModelPlaceholder = "Select a model"
 

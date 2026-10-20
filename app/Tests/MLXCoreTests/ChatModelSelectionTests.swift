@@ -10,6 +10,18 @@ import XCTest
 /// reading `modelInfo?.name` for itself.
 final class ChatModelSelectionTests: XCTestCase {
 
+    func testChatLoadProgressFollowsTheChatTargetWhileTrayKeepsLocalLoads() {
+        for target in [nil, "qwen@studio", "/models/qwen@Splash"] as [String?] {
+            for apple in [false, true] {
+                XCTAssertEqual(ChatModelSelection.showsLocalLoadProgress(
+                    lanChatModelId: target, apple: apple, includesBackgroundLoads: false),
+                    target == nil && !apple)
+                XCTAssertTrue(ChatModelSelection.showsLocalLoadProgress(
+                    lanChatModelId: target, apple: apple, includesBackgroundLoads: true))
+            }
+        }
+    }
+
     func testLanSelectionWinsOverTheLocalPath() {
         // A LAN chat is served by another Mac; the local `selectedModelPath` is
         // still set underneath and must not be what the picker ticks.

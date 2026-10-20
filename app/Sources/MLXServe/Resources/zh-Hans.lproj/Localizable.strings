@@ -2366,3 +2366,9 @@
 
 "Show Activity Phrases" = "显示活动短语";
 "Show rotating activity text while generating. GPU, memory and elapsed time remain visible." = "生成时显示轮换的活动文字。GPU、内存和已用时间始终可见。";
+
+"Local Server" = "本地服务器";
+
+"Local Memory" = "本机内存";
+
+"Chat target" = "聊天目标";

@@ -172,9 +172,16 @@ class ServerManager: ObservableObject {
         running && launchedModelPath.isEmpty && !chatResident && !selectedModelPath.isEmpty
     }
 
+    /// A remembered local pick is not a load target while chat uses a remote model.
+    func localChatLoadPath(selectedPath: String) -> String? {
+        guard lanChatModelId == nil, !selectedPath.isEmpty else { return nil }
+        return selectedPath
+    }
+
     /// Whether `ensureDefaultChatModel` would load the selected model first.
     func chatLoadNeeded(selectedModelPath: String) -> Bool {
-        Self.shouldEnsureChatDefault(running: status == .running, launchedModelPath: currentModelPath,
+        guard localChatLoadPath(selectedPath: selectedModelPath) != nil else { return false }
+        return Self.shouldEnsureChatDefault(running: status == .running, launchedModelPath: currentModelPath,
                                      chatResident: residentChatModel != nil, selectedModelPath: selectedModelPath)
     }
 

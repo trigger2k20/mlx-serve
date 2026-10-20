@@ -1,5 +1,7 @@
 ![mlx-serve —— Apple Silicon 上的统一 AI 平台：聊天、编码 Agent、图像、视频、音乐、语音克隆、3D](website/assets/mlx-serve-header.jpg)
 
+选择提供商或局域网聊天模型时，不会预加载上次选择的本地模型。菜单栏区分聊天目标、本地服务器和本机内存。
+
 # mlx-serve —— 在你的 Mac 上运行任意 LLM
 
 **面向 Apple Silicon 的本地推理，兼容 OpenAI 与 Anthropic —— 同时支持 MLX *与* GGUF，在相同的 MLX 权重上比 LM Studio 更快。无需 Python，不碰云端，不用 Electron。**
