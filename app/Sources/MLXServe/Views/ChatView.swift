@@ -4256,10 +4256,10 @@ struct GeneratingIndicator: View {
                 }
                 switch segment {
                 case .gpu:
-                    Text(L10n.format("GPU %lld%%", gpuPercent))
+                    Text(L10n.format("GPU %3lld%%", gpuPercent))
                         .foregroundStyle(gpuColor)
                 case .memory:
-                    Text(L10n.format("Mem %lld%%", memPercent))
+                    Text(L10n.format("Mem %3lld%%", memPercent))
                         .foregroundStyle(memColor)
                 case .activityPhrase(let phrase):
                     Text(L10n.text(phrase))
