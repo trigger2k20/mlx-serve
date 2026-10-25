@@ -72,11 +72,9 @@ enum ChatWorkspace: Equatable {
         return nil
     }
 
-    /// Where a "browse models" request lands. One section — the friendly front
-    /// door — because every entry point that used to open the window opened it
-    /// on `.recommended` too, and a request that arrived on a different tab
-    /// each time would read as the app forgetting.
-    static let defaultEntry: ChatWorkspace = .models(.recommended)
+    static func modelBrowserEntry(section: ModelBrowserSection? = nil, localModels: [LocalModel]) -> ChatWorkspace {
+        .models(section ?? .defaultSection(hasLocalModels: !localModels.isEmpty))
+    }
 
     /// Whether the "you need a model to chat" gate may cover the window.
     ///
