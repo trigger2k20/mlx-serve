@@ -2387,3 +2387,9 @@
 "Include LM Studio, the Hugging Face cache and other apps. Turn off to use only configured folders and previous MLX-Serve downloads. Restart the server to update its search folders." = "包含 LM Studio、Hugging Face 缓存及其他应用中的模型。关闭后仅使用已配置的文件夹和以前的 MLX-Serve 下载。重启服务器以更新搜索文件夹。";
 
 "Rescan enabled model folders" = "重新扫描已启用的模型文件夹";
+
+"Local Server" = "本地服务器";
+
+"Local Memory" = "本机内存";
+
+"Chat target" = "聊天目标";

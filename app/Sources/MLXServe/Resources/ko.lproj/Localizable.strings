@@ -2364,3 +2364,9 @@
 "Include LM Studio, the Hugging Face cache and other apps. Turn off to use only configured folders and previous MLX-Serve downloads. Restart the server to update its search folders." = "LM Studio, Hugging Face 캐시 및 다른 앱의 모델을 포함합니다. 끄면 설정한 폴더와 기존 MLX-Serve 다운로드만 사용합니다. 검색 폴더를 적용하려면 서버를 다시 시작하세요.";
 
 "Rescan enabled model folders" = "활성화된 모델 폴더 다시 검색";
+
+"Local Server" = "로컬 서버";
+
+"Local Memory" = "로컬 메모리";
+
+"Chat target" = "채팅 대상";

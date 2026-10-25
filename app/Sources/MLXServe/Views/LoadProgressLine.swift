@@ -38,6 +38,7 @@ struct ModelLoadProgressRow: View {
     /// Above the composer: only while this Mac answers the chat, never a provider's or a peer's.
     var chatTargetOnly = false
 
+
     var body: some View {
         if ChatModelSelection.showsLocalLoadProgress(lanChatModelId: server.lanChatModelId, apple: appState.useAppleModel,
                                                      chatTargetOnly: chatTargetOnly) {

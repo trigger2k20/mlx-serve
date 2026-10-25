@@ -248,7 +248,7 @@ struct StatusMenuView: View {
     private var serverSection: some View {
         VStack(alignment: .leading, spacing: TrayMetrics.rowSpacing) {
             HStack(spacing: 8) {
-                TraySectionHeader(title: "Server").fixedSize()
+                TraySectionHeader(title: "Local Server").fixedSize()
                 Spacer(minLength: 0)
             }
             TrayCard {
@@ -262,6 +262,9 @@ struct StatusMenuView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 } else {
+                    Text("Chat target")
+                        .font(.app(.caption))
+                        .foregroundStyle(.secondary)
                     HStack(spacing: 6) {
                         modelPicker
                         Button { openModelSettings() } label: {
@@ -271,6 +274,13 @@ struct StatusMenuView: View {
                         .controlSize(.regular)
                         .disabled(appState.selectedModelPath.isEmpty || server.lanChatModelId != nil || appState.useAppleModel)
                         .help("Model Settings for the selected model (context, KV cache, MTP)")
+                    }
+                    if let remote = server.lanChatModelId {
+                        Text(ModelDisplayName.pretty(remote))
+                            .font(.app(.caption))
+                            .foregroundStyle(.secondary)
+                            .lineLimit(2)
+                            .textSelection(.enabled)
                     }
                     serverControls
 
@@ -496,7 +506,7 @@ struct StatusMenuView: View {
         // frees its memory. Unloaded stubs are hidden.
         let loadedModels = server.residentModels
         return VStack(alignment: .leading, spacing: TrayMetrics.rowSpacing) {
-            TraySectionHeader(title: "In Memory",
+            TraySectionHeader(title: "Local Memory",
                               detail: loadedModels.count > 1 ? L10n.format("%lld models", loadedModels.count) : nil)
             TrayCard {
                 let helping = ClusterWorker.part(of: appState.clusterWorker.state) != nil
