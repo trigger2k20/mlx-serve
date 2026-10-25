@@ -49,6 +49,7 @@ Agent loop: tools → parse → exec → feed back; history builder is budget-aw
 ## Rules
 
 - Settings/body restart predicates compare stored discovery snapshots; folder detection runs only at startup or explicit refresh/configuration changes. Refresh progress is observed by its pane, not forwarded through AppState. Guard: `ModelDiscoverySnapshotTests`.
+- Monitoring owns app-lifetime collection and endpoint-scoped history; only its pane observes sample changes. File I/O stays on the persistence queue; failed polls and counter resets break chart continuity. Guards: `MonitoringTests`, `MonitoringStoreTests`.
 
 - **IME composition and a recovered steering note have separate owners**: keep paused notes in the app-level engine until the composer has committed or cancelled its marked text. Restore after the binding update; neither redraw nor window removal may consume the note. Guards: `SteeringNotesTests`, `ComposerMarkedTextTests`; detail: `../docs/gotchas/app.md`.
 
