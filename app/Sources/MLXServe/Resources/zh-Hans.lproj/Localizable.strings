@@ -2382,3 +2382,8 @@
 
 "Show Activity Phrases" = "显示活动短语";
 "Show rotating activity text while generating. GPU, memory and elapsed time remain visible." = "生成时显示轮换的活动文字。GPU、内存和已用时间始终可见。";
+"Automatically Discover Models" = "自动发现模型";
+
+"Include LM Studio, the Hugging Face cache and other apps. Turn off to use only configured folders and previous MLX-Serve downloads. Restart the server to update its search folders." = "包含 LM Studio、Hugging Face 缓存及其他应用中的模型。关闭后仅使用已配置的文件夹和以前的 MLX-Serve 下载。重启服务器以更新搜索文件夹。";
+
+"Rescan enabled model folders" = "重新扫描已启用的模型文件夹";
